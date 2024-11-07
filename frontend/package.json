@@ -13,7 +13,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "concurrently \"npm run start:main\" \"npm run start:auth\"",
+    "start:main": "npm start",
+    "start:auth": "cd microfrontend/auth && npm start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "test:microfrontend": "npx jest ./index.spec.js",
@@ -40,6 +42,7 @@
   "devDependencies": {
     "@playwright/test": "^1.45.0",
     "@types/node": "^20.14.9",
+    "concurrently": "^9.0.1",
     "dotenv": "^16.0.2",
     "wait-port": "^1.1.0"
   }

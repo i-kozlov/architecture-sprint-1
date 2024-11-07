@@ -10,11 +10,14 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import Register from "./Register";
-import Login from "./Login";
+import Register from "auth/Register";
+import Login from "auth/Login";
+// import * as authUtils from "auth/utils";
 import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth.js";
+
+const Login = lazy(() => import("auth/Login"));
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
